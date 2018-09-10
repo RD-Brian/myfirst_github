@@ -1,0 +1,43 @@
+<div class="method">
+    {% if payment_methods %}
+    <p class="method-title"><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>請選擇付款方式</span></p>
+    {% for payment_method in payment_methods %}
+    <div class="method-radio">
+        
+    <label>
+        {{ payment_method.title }}
+        {% if payment_method.terms %}
+        ({{ payment_method.terms }})
+        {% endif %} 
+        {% if payment_method.code == code %}
+        <span class="method-radio-span">
+            <input type="radio" name="payment_method" id="payment_method_radio" value="{{ payment_method.code }}" checked="checked"/>
+        </span>
+        {% else %}
+        <span class="method-radio-span">
+        <input type="radio" name="payment_method" id="payment_method_radio" value="{{ payment_method.code }}"/>
+        </span>
+        {% endif %}
+        
+    </label>
+    <span class="method-radio-txt">國泰世華 : 單筆訂單滿 1000 元，即享有免運費優惠。 </span>
+    </div>
+    {% endfor %}
+</div><!-- method -->
+
+<script type="text/javascript">
+$('input[type=\'radio\'][name=\'payment_method\']').on('change',function(){
+    var $payment_method = $(this).val();
+    $.ajax({
+        url: '{{ renew_total }}',
+        type: 'post',
+        data: 'payment_method=' + $payment_method,
+        dataType: 'html',
+        success:function(html) {
+            console.log(html);
+            $('.cart-checkout').html(html);
+        }
+    });
+});
+</script>
+{% endif %}

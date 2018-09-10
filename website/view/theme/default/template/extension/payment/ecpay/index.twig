@@ -1,0 +1,29 @@
+{{ text_title }} - {{ text_description }}
+
+{# <div class="buttons">
+    <div class="pull-right">
+        <input type="button" value="{{ ecpay_text_checkout_button }}" id="ecpay_checkout_button" class="btn btn-primary" onclick="document.getElementById('ecpay_redirect_form').submit();"/>
+    </div>
+</div>
+
+<form class="form-horizontal" action="{{ action }}" method="POST" id="ecpay_redirect_form">
+	<fieldset>
+		<legend>{{ ecpay_text_title }}</legend>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">{{ ecpay_text_payment_methods }}</label>
+			<div class="col-sm-2">
+				<select name="ecpay_choose_payment" class="form-control">
+					{% for payment_type,payment_desc in payment_methods %}
+					<option value="{{ payment_type }}">{{ payment_desc }}</option>
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+		<div class="buttons">
+			<div class="pull-right">
+				<input type="button" value="{{ ecpay_text_checkout_button }}" id="ecpay_checkout_button" class="btn btn-primary" onclick="document.getElementById('ecpay_redirect_form').submit();"/>
+			</div>
+		</div>
+	</fieldset>
+	<input type="hidden" name="ecpay_choose_payment" value="{{ ecpay_choose_payment }}">
+</form> #}

@@ -1,0 +1,29 @@
+{{ header }}
+<div class="products-img products-img-item"></div>
+<div class="cart-warp">
+  <div class="cart-details">
+    {{ shopping_cart }}     
+    <div class="cart-checkout">{{ shopping_total }}</div>
+
+    {{ payment_method }}
+    
+
+    <div class="cart-checkout-btn">
+      <a href="{{ product_category }}"><i class="fa fa-reply" aria-hidden="true"></i>回商城逛逛</a>
+      <a onclick="check_payment_method();" id="member_go_checkout">下一步 > <i class="fa fa-arrow-circle-right " aria-hidden="true"></i></a>
+    </div>
+
+  </div>
+</div>
+<script type="text/javascript">
+  var check_payment_method = function() {
+    var test1s = document.getElementById('payment_method_radio');
+      if(test1s.checked){
+        location.href = "{{ checkout }}";
+      }  
+      else{
+        alert('您尚未選擇付款方式');
+      }    
+  }
+</script>
+{{ footer }}

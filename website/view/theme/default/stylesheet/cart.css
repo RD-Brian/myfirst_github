@@ -1,0 +1,474 @@
+@charset "utf-8";
+@import url(style/font-awesome.min.css);
+@import url(style/layout.css);
+.main-color{
+ color: #8d121b;
+ font-weight: bold;
+}
+.main-bg-color{
+  background: #8d121b;
+}
+.cart{
+  border-radius: 30px;
+  border: solid 1px #ccc;
+  padding: 3%;
+  background: #fff;
+}
+.cart-title {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-left: 100px;
+}
+.cart-title p{
+  line-height: 42px;
+}
+.cart-title-p{
+  padding-left: 11px;
+}
+.pick-up-content{
+  padding:60px 0;
+}
+.pick-up,.chenk-pick-up{
+  border-top: solid 1px #ccc;
+  border-bottom: solid 1px #ccc;
+  line-height: 46px;
+  font-size: 14px;
+  margin-top: -1px
+}
+.pick-up-title{
+  line-height: 60px;
+  padding-left: 28px;
+  font-size: 18px;
+}
+.pick-up-title img{
+  padding-right: 5px;
+  vertical-align: middle;
+}
+.pick-up-icon img{
+  position: absolute;
+  right: 0;
+}
+.pick-table{
+  margin: 40px auto 30px;
+  border:solid 1px #ccc;
+  border-radius: 10px;
+  padding: 30px 15px;
+  font-size: 14px;
+}
+.pick-table-title{
+  border-bottom:solid 1px #eee;
+  line-height: 36px;
+}
+.pick-table-content{
+  border-bottom:solid 1px #eee;
+  padding: 15px 0;
+}
+.pick-txt{
+  padding-right: 120px;
+}
+/*購物車按鈕的框*/
+.pick-up input[type="radio"] {
+    width: 16px;
+    height: 16px;
+}
+.payment--radio {
+    display: inline-block;
+    padding: 0 30px;
+    background: #ddd;
+}
+.quantity-input{
+  width: 60px;
+  border:solid 1px #eee;
+}
+.clearing{  
+  line-height: 36px;
+  padding-top: 15px;
+}
+.clearing-span{
+  display: inline-block;
+  padding-left: 60px;
+  padding-right: 15px;
+}
+.clearing-last{
+  border-top: solid 1px #ccc;
+  padding:20px 0 0;
+}
+.clearing-hidden{
+  display: none;
+}
+/*運費說明*/
+.shoppong-btn{
+  background: #ffe400;
+  color: #241915;
+  padding: 15px;
+}
+.shoppong-btn a,.shoppong-btn button{
+  border:solid 1px #333; 
+  display: inline-block;
+  padding: 15px 20px;
+  margin-left: 15px;
+}
+.shoppong-btn a i,.shoppong-btn button i{
+  padding: 0 5px
+}
+.pick-up input[type="radio"]{
+  width: 16px;
+  height: 16px;
+}
+.checkout-clearing{
+  padding-right: 0
+}
+.well{
+    border: solid 1px #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #fdfdfd;
+}
+.checkout-data {
+  margin: 30px 0 36px;
+}
+.well-title{
+  border-bottom: solid 1px #ccc;
+  line-height: 36px;
+  padding: 0 15px;
+  margin-bottom: 10px;
+}
+.well-div{
+  padding-top: 10px;
+  line-height: 44px;
+}
+.well-input{
+  width:360px;
+  border:solid 1px #ddd;
+}
+.spacing{
+  display: inline-block;
+  width: 34px;
+}
+.well-div-span{
+  display: inline-block;
+  padding: 0 15px;
+  min-width: 100px;
+}
+
+#twzipcode select,#twzipcode input,#twzipcode2 select,#twzipcode2 input{
+  border:solid 1px #ccc;
+  width: 116px;
+  line-height: 40px;
+  height: 40px;
+}
+#twzipcode select,#twzipcode2 select{
+  margin-right: 5px
+}
+.well-title span{
+  position: absolute;
+  right: 40px;
+  font-size: 12px;
+}
+.chenk-pick-up{
+  background: #ffe400;
+  color: #333;
+}
+.checkout-div{
+  padding: 15px;
+  border: solid 1px #ccc;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+.checkout-div h1,.checkout-div p{
+  border-bottom: solid 1px #ccc;
+  line-height: 36px;
+  padding-left: 15px;
+}
+.checkout-div p{
+  background: #eee;
+  color: #333;
+  border: solid 1px #ccc;
+  margin-top: -1px; 
+}
+.confirm-content{
+  margin: 60px 0 50px;
+  border:solid 1px #eee;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.confirm-img img{
+  width: 30%;
+  margin: 15px 0
+}
+.confirm-img {
+  background: #eee;
+  padding:30px;
+  border-top-left-radius:10px;
+  border-bottom-left-radius:10px;
+  min-height: 220px;
+}
+.confirm-txt{
+  line-height: 30px;
+  padding: 12px 15px
+}
+.confirm-txt h1{
+  font-size: 22px;
+  padding-bottom: 16px;
+  color:#8d121b;
+  font-weight: bolder;
+}
+.title-div{
+  font-size: 18px;
+  border-bottom: solid 1px #ccc;
+  padding-bottom: 5px;
+  padding: 0 15px;
+}
+.pick-up-div2,.md-be{
+  text-align: center;
+}
+#confirm-btn{
+  margin-bottom: 30px;
+  position: relative;
+  cursor: pointer;
+}
+#confirm-btn span{
+  position: absolute;
+  right:15px;
+  color: #888;
+  font-size: 14px;
+  top: 5px;
+}
+.md-block,.pick-up-m-p{
+  display: none;
+}
+.pick-table-img img{
+  max-width: 80px;
+}
+.gift-money{
+    padding:15px 15px;
+    text-align: right;
+    border-bottom: solid 1px #eee;    
+}
+  .gift-money input[type="checkbox"]{
+    margin-top: 0;
+}
+.gift-money-input{
+    border: solid 1px #eee;
+    padding-left: 8px;
+    margin-left: 10px;
+    width: 50%;
+}
+.gift-money-none{
+    display: none;
+}
+
+/*cart-Responsive*/
+@media screen and (max-width: 1200px) {
+  .text-overflow{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .quantity-input {
+    width: 25px; 
+    border:none; 
+  }
+}
+@media screen and (max-width: 992px) {
+  .pick-up-icon img {
+    display: none;
+  }
+  .pick-table-title{
+    display: none;
+  }
+  .pick-txt {
+    padding-right: 0px;
+    height: 110px;
+  }
+  .md-block{
+    display: block;
+    float: left;
+  }
+  .md-block,.md-be{
+   height: 60px;
+   line-height: 60px;  
+  } 
+  .md-be{
+    text-align: left;
+  }
+  .padding-right-none,.padding-left-none{
+    padding: 0;
+    margin-bottom: 15px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .pick-up-content {
+    padding: 20px 0;
+  }
+  .pick-table{
+    margin:0;
+  }
+  .padding-right-none,.padding-left-none{
+    padding: 0;
+    margin-bottom: 15px;
+  }
+  .well-div-span{
+    width: 15%;
+  }
+  .well-input{
+    width: 80%;
+  }
+  #twzipcode select, #twzipcode input, #twzipcode2 select, #twzipcode2 input{
+    width: 24.8%
+  }
+  .confirm-img img{
+    width: 15%
+  }
+  .confirm-img{
+    min-height: initial;
+  }
+}
+@media screen and (max-width: 767px) {
+  .mobile-none{
+    display: none
+  }  
+  .pick-up-m-p{
+    display:inline-block;
+    padding-left: 25px;
+  }
+  .pick-up-div2{
+    line-height: 26px;
+    margin-top: 1px;
+  }
+  .mobile-bg-none{
+    background: none;
+  }
+  .pick-up-icon{
+    padding-left: 40px;
+    line-height: 26px;
+  }
+  .text-overflow{
+    overflow: initial;
+    white-space: initial;
+    text-overflow: initial;
+  }
+  .pick-up input[type="radio"]{
+    position: absolute;
+    top: 15px; left: 15px
+  }
+  .gift-money{
+    text-align: left;   
+    padding: 15px 0; 
+  }
+  .gift-money span{
+    margin-top: 10px;
+    display: inline-block;
+  }
+  .gift-money-input{
+    width: 100%;
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 624px) {
+  .well-div-span,.well-input{
+    width:100%;
+  }
+  .m-624-none{
+    display: none
+  }
+}
+@media screen and (max-width: 500px) {
+  .pick-up-m-p{
+    display: none;
+  }
+  .cart-title{
+    padding:0 15px;
+  }
+  .pick-up-content{
+    padding: 0;
+  }
+  .shoppong-btn{
+    text-align: center;
+  }
+  .pick-up input[type="radio"]{
+    top:3px;
+  }
+  .md-block, .md-be {
+    height: 40px;
+    line-height: 40px;
+  }
+  .well-div {
+    padding-top: 0px;
+    line-height: 28px;
+  }
+  .shoppong-btn {
+    margin-top: 20px;
+  }
+  .well-div-span-mobile{
+    width: initial;
+    padding-left:5px;
+    min-width: initial;
+    line-height: 36px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .shoppong-btn{
+    padding:10px 15px;
+  }
+  .shoppong-btn a, .shoppong-btn button{
+    margin: 0;
+  }
+  .pick-table{
+    padding: 15px;
+    margin-top: 20px;
+  }
+  .clearing-span{
+    padding-right: 15px;
+  }
+  .mobile-xs-4{
+    width:100%;
+  }
+  .mobile-xs-4 img{
+    max-width: 70%
+  }
+  .phone-none{
+    display: none
+  }
+  .cart-title p {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  #twzipcode select,#twzipcode2 select{
+    width:48%;
+    margin:0;
+  }
+  #twzipcode select:nth-child(2),#twzipcode2 select:nth-child(2){
+    margin-left: 12px;
+  }
+  #twzipcode input,#twzipcode2 input{
+    width:100%;
+    margin-top: 10px;
+  }
+  .well-title,.well-div-span{
+    padding: 0;
+  }
+  .confirm-img img {
+    width: 40%;
+    margin:0;
+  }
+}
+@media screen and (max-width: 359px) {
+  .clearing-span {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .shoppong-btn a, .shoppong-btn button{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 320px) {
+
+}
+
+
+.my-cart{
+  margin-top: -380px;
+}    

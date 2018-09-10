@@ -1,0 +1,225 @@
+{{ header }}
+  <div class="warp">
+    <div class="banner fadeInUp wow" data-wow-delay=".1s">
+      <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/banner.png" alt=""/></div>
+                <div class="swiper-slide"><img src="images/banner.png" alt=""/></div>
+                <div class="swiper-slide"><img src="images/banner.png" alt=""/></div>                
+            </div>            
+            <div class="swiper-pagination"></div>           
+        </div>
+        <script>
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            paginationClickable: true,            
+            centeredSlides: true,
+            autoplay: 3000,
+            autoplayDisableOnInteraction: false
+        });
+        </script>
+    </div><!-- banner -->
+    <div class="i-story">
+      <div class="i-slide">       
+          <img src="images/i-slide.png" alt="" class="slide-pc scroll-top">
+          <img src="images/i-slide.svg" alt="" class="slide-mobile scroll-top">       
+        <p class="i-slide-p"><img src="images/i-slide-before.png" alt=""></p>
+      </div>
+      <div class="i-title">
+        <div class="i-story-img">
+          <div class="i-story-img-original"><img src="images/i-story.png" alt=""></div>
+          <div class="i-story-img-hover">
+            <a href="{{ about }}"><img src="images/i-story-hover.png" alt=""></a>
+          </div>
+        </div>        
+      </div>
+      <div class="i-story-txt">
+        <p class="fadeInUp wow" data-wow-delay=".1s">在日常隨手一杯咖啡的世代，</p>
+        <p class="fadeInUp wow" data-wow-delay=".15s">我們漸漸培養出對咖啡的堅持品味，細細品嘗生活態度。</p>
+        <p class="fadeInUp wow" data-wow-delay=".175s">咖啡好事多撿撿來自世界各地的咖啡好豆，</p>
+        <p class="fadeInUp wow" data-wow-delay=".2s">專研不同烘焙手法引出其風味，淬煉出咖啡豆的靈魂。</p>
+        <p class="fadeInUp wow" data-wow-delay=".225s">我們不能說是最專業，但肯定是最專注。</p>
+        <p class="fadeInUp wow" data-wow-delay=".25s">不斷磨練、嘗試，分享所學、所認知，</p>
+        <p class="fadeInUp wow" data-wow-delay=".275s">給忙碌的族群們，</p>
+        <p class="fadeInUp wow" data-wow-delay=".3s">讓匆碌的日常漫進一股香醇的咖啡風味。</p>
+      </div>
+      <div class="i-story-bg fadeInLeft wow"  data-wow-delay=".1s">
+        <img src="images/i-story-coffee.png" alt="">
+      </div>
+    </div><!-- i-story -->
+    <div class="i-carousel fadeInUp wow"  data-wow-delay=".5s" id="i-carousel" >
+      <div class="swiper-container-carousel">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/i-photo-03.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/i-photo-02.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/i-photo-01.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/i-photo-03.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/i-photo-02.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/i-photo-01.jpg" alt=""></div>            
+            </div>            
+            <div class="swiper-pagination"></div>           
+        </div>
+        <script>       
+            var swiper = new Swiper('.swiper-container-carousel', {             
+              slidesPerView: 3,
+              slidesPerColumn: 1,   
+              autoplay: 3000, 
+              breakpoints: {  
+                1024: {
+                      slidesPerView: 3,
+                      
+                  },              
+                  767: {
+                      slidesPerView: 2,
+                      
+                  },
+                  425: {
+                      slidesPerView: 1,
+                      
+                  },
+              }          
+          });
+        </script>
+    </div><!-- i-carousel -->
+    <div class="i-good-thing fadeInUp wow"  data-wow-delay=".5s">
+      <div class="i-title">
+        <div class="i-story-img">
+          <div class="i-story-img-original">
+            <img src="images/i-good-thing.png" alt="">
+          </div>
+          <div class="i-story-img-hover">
+            <a href="{{ news }}"><img src="images/i-good-thing-hover.png" alt=""></a>
+          </div>
+        </div>              
+      </div>
+      <div class="i-good-thing-container fadeInUp wow"  data-wow-delay=".5s">
+        <div class="swiper-container-good-thing">
+              <div class="swiper-wrapper swiper-wrapper-good-thing">
+                {% for new in newsies %}
+                  <div class="swiper-slide">
+                    <a href="{{ new.href }}">
+                      <img src="{{ new.image }}" alt="" class="swiper-good-thing-img"><!--{{ new.image }}-->
+                    </a>
+                    <div class="swiper-good-thing-img-txt">{{ new.name }}</div>
+                    <div class="swiper-good-thing-div">
+                      <h1>{{ new.month }}.</h1>                     
+                      <h2>{{ new.day }}</h2>
+                      <span class="swiper-good-thing-div-line"></span>
+                      <span class="swiper-good-thing-div-span">{{ new.weekday }}</span>
+                    </div>
+                  </div>
+                {% endfor %}    
+              </div>              
+          </div>  
+          <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>           
+      </div>
+        <script>
+        var swiper = new Swiper('.swiper-container-good-thing', {        
+            slidesPerView: 3,
+            spaceBetween: 10,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            paginationClickable: true,
+            breakpoints: {  
+              1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                },              
+                767: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
+                },
+                
+                425: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                }
+            }
+        });
+        </script>
+        <div class="i-good-thing-line"></div>
+    </div><!-- i-good-thing -->
+    <div class="i-commodity ">
+      <div class="i-title fadeInUp wow"  data-wow-delay=".3s">
+        <div class="i-story-img fadeInUp wow"  data-wow-delay=".5s">
+          <div class="i-story-img-original fadeInUp wow"  data-wow-delay=".5s">
+            <img src="images/i-commodity.png" alt=""/>           
+          </div>
+          <div class="i-story-img-hover">
+            <a href="{{ product }}"><img src="images/i-commodity-hover.png" alt=""></a>
+          </div>
+        </div>              
+      </div>
+      <div class="i-commodity-title fadeInUp wow"  data-wow-delay=".5s">
+        <a href="{{ article }}">
+          <img src="images/i-commodity-title.png" alt=""/>
+        </a>
+      </div>
+      <div class="i-commodity-conatiner clearfix">
+        {% for k,product in productLists %}
+          <div class="i-commodity-div fadeIn wow"  data-wow-delay=".1s">
+            <img src="{{ product.image }}" alt=""/>
+            <div class="sellwell"><img src="images/sellwell-0{{ k+1 }}.png" alt=""></div>
+            <div class="sellwell-btn">
+              <a href="{{ product.href }}">{{ product.name }}</a>
+            </div>
+          </div>
+        {% endfor%}
+      </div>
+      <div class="i-good-thing-line"></div>
+    </div><!-- i-commodity -->
+    <div class="i-knowledge">
+      <div class="i-title fadeInUp wow"  data-wow-delay=".3s">
+        <div class="i-story-img fadeInUp wow"  data-wow-delay=".5s">
+          <div class="i-story-img-original">
+            <img src="images/i-knowledge.png" alt=""/>
+          </div>
+          <div class="i-story-img-hover">
+            <a href="{{ article }}"><img src="images/i-knowledge-hover.png" alt=""></a>
+          </div>
+        </div>              
+      </div>
+      {% for article in articles %} 
+        <div class="i-knowledge-container">
+          <div class="i-knowledge-container-div clearfix">
+            <div class="i-knowledge-one fadeInUp wow"  data-wow-delay=".5s">
+              <img src="{{ article.image }}" alt=""/>
+            </div> 
+            <div class="i-knowledge-two wow fadeInDown" data-wow-delay=".5s">
+              <h1>{{ article.name }}</h1>
+              <div> 
+                <!-- <span>作者 Coffee 。 05-23-2018</span>              -->
+                <p>{{ article.description }}<a href="{{ article.href }}">繼續閱讀</a></p>
+              </div>
+            </div>
+          </div>
+        <div class="i-knowledge-bg"></div>
+      </div><!-- i-knowledge -->
+      {% endfor %}
+    <div class="i-slide-bottom">
+      <div class="i-slide">
+        <p class="i-slide-p"><img src="images/i-slide-before.png" alt=""></p>       
+        <img src="images/i-slide-bottom.png" alt="" class="slide-pc scroll-bottom">
+        <img src="images/i-slide-bottom.svg" alt="" class="slide-mobile scroll-bottom"> 
+      </div>
+    </div>
+  </div>
+</div>
+<!-- warp -->
+<script type="text/javascript"> 
+$(function(){ 
+  $(".scroll-top").click(function(){    
+    $('html, body').animate({scrollTop: $(".i-carousel").offset().top - 130}, 900);
+    return false;
+  });
+   $(".scroll-bottom").click(function(){
+    $("html,body").animate({scrollTop:0},900);
+    return false;
+  });   
+});
+</script>
+
+{{ footer }}

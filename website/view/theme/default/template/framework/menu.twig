@@ -1,0 +1,94 @@
+			<div class="menu">
+				<ul>
+					<li>
+						<p><img src="images/menu-txt.svg" alt=""></p>
+						<a href="{{ about }}">故事多
+							<span class="palm fadeIn"><img src="images/palm.png" alt=""></span>
+						</a>
+					</li>
+					<li>
+						<p><img src="images/menu-txt.svg" alt=""></p>
+						<a href="{{ news }}">好事近
+							<span class="palm fadeIn"><img src="images/palm.png" alt=""></span>
+						</a>				
+					</li>
+					<li>
+						<p><img src="images/menu-txt.svg" alt=""></p>
+						<a href="{{ shop }}">商品多
+							<span class="palm fadeIn"><img src="images/palm.png" alt=""></span>
+						</a>
+					</li>
+					<li>
+						<p><img src="images/menu-txt.svg" alt=""></p>
+						<a href="{{ article }}">學問多
+							<span class="palm fadeIn"><img src="images/palm.png" alt=""></span>
+						</a>
+					</li>
+					<li>
+						<p><img src="images/menu-txt.svg" alt=""></p>
+						<a href="{{ problem }}">好問題
+							<span class="palm fadeIn"><img src="images/palm.png" alt=""></span>
+						</a>
+					</li>
+					<li>
+						<p><img src="images/menu-txt.svg" alt=""></p>
+						<a href="{{ contact }}">
+							好團購
+							<span class="palm fadeIn"><img src="images/palm.png" alt=""></span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="menu-btn">
+				<span class="menu-btn-top"></span>
+				<span class="menu-btn-middle"></span>
+				<span class="menu-btn-bottom"></span>
+			</div>
+
+			<div class="menu-cart">
+				<!-- 判定會員 -->
+				{% if login_session %}
+				<a href="{{ logout }}">登出</a>
+				<span class="menu-cart-span">|</span>
+				<a href="{{ edit }}" class="header_username">{{ username }}</a>
+				{% else %}
+				<button class="login-btn">登入</button>
+				<span class="menu-cart-span">|</span>
+				<a href="{{ register }}">註冊</a>
+				{% endif %}
+				{{ minicart }}
+			</div>
+			<div class="menu-cart-mobile">
+				<!-- 判定會員 -->
+				{% if login_session %}
+				<div class="menu-cart-mobile-div">
+					<i class="fa fa-sign-in" aria-hidden="true"></i>
+					<p><a href="{{ logout }}">登出</a></p>
+				</div>
+				<div class="menu-cart-mobile-div">
+					<i class="fa fa-user-plus" aria-hidden="true"></i>
+					<p><a href="{{ edit }}">{{ username }}</a></p>
+				</div>
+				{% else %}
+				<div class="menu-cart-mobile-div">
+					<i class="fa fa-sign-in" aria-hidden="true"></i>
+					<p class="login-btn">登入</p>
+				</div>
+				<div class="menu-cart-mobile-div">
+					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+					<p><a href="{{ register }}">註冊</a></p>
+				</div>
+				{% endif %}
+				<div class="menu-cart-mobile-div">
+					<i class="fa fa-shopping-cart cart-btn-rwd" aria-hidden="true"></i>
+					<p class="cart-btn">購物車
+					{{ minicart }}
+					</p>
+				</div>
+				<div class="menu-cart-mobile-div">
+					<i> 
+						<img src="images/messenger-icon .svg" alt="" style="width: 20px; margin-top: -5px">
+					</i>
+					<p style="margin-top: -5px">線上客服</p>
+				</div>
+			</div><!-- menu-cart-mobile -->

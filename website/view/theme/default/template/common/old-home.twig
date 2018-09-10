@@ -1,0 +1,198 @@
+{{ header }}
+<section id="section-banner" class="hero-image pos-relative ov-hidden full-hight" style="background-image:url('images/home_section_1.jpg');">
+    <div class="section-box">
+
+    <div class="container wrapper-h-xs-lg">
+      <div class="row">
+      	<div class="col-sm-5 col-sm-offset-4">
+      		<div id="home-banner-1" class="wow fadeInDown">
+      			<img src="images/home_section_1_icon_1.png" class="img-responsive" alt="">
+      		</div>
+        	<div id="home-banner-2" class="wow fadeInDown">
+        		<img src="images/home_section_1_icon_2.png" class="img-responsive" alt="">
+        	</div>
+        </div>
+        <!-- Hero Smartphone Image -->
+        
+        <!-- /End Hero Smartphone Image -->
+
+      </div>
+      </div>
+    </div>
+</section>
+
+<section id="section-news" class="hero-image pos-relative ov-hidden full-hight" style="background-image:url('images/home_section_2.jpg');">
+  	<div class="section-box">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+          <div id="home-news" class="home-content opacity-black wow fadeInDown">
+          	<h1>最新消息_<span>EVENTS. AND NEWS.</span></h1>
+            <ul>
+              {% for news in newsies %}
+                <li><a href="{{ news.href }}">{{ news.name }}_{{ news.date_added }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div id="btn-all-news-box" class="text-right wow fadeInDown">
+            <a href="{{ news }}" id="btn-all-news" class="btn btn-default">MORE</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</section>
+
+<section id="section-about" class="hero-image pos-relative ov-hidden full-hight" style="background-image:url('images/home_section_3.jpg');">
+    <div class="section-box">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-5 col-sm-offset-3">
+            <div id="home-about" class="home-content opacity-black wow fadeInDown">
+              <h1>關於。天韻<span>ABOUT /</span></h1>
+              <p>/<br>
+                天韻MOTEL是由天韻集團，一個輝煌<br>高尚的精品汽車旅館集團，精心打造的<br>同名汽車旅館。</p>
+              <p>在璀璨的都會、在富含文化底蘊的城<br>鎮、在人流匆匆的城市，為旅人提供<br>一個樂活舒適的休憩環境。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section id="section-rooms" class="hero-image pos-relative ov-hidden full-hight" style="background-image:url('images/home_section_4.jpg');">
+    <div class="section-box">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-5 col-sm-offset-3">
+          <div id="home-rooms" class="home-content opacity-black wow fadeInDown">
+            <h1>客房介紹<span>ROOMS & SUITES</span></h1>
+              <p>/<br>
+                由知名設計團隊帶領設計,<br>顛覆對靜謐奢華美的想像,<br>創造出城市綠洲的經典。</p>
+              </p>
+              <a href="{{ category }}" id="btn-all-rooms" class="btn btn-default">所有房型</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</section>
+
+
+  <!-- ============================
+       Features Section
+  ================================= -->
+
+  <section id="section-contact" class="hero-image pos-relative ov-hidden full-hight" style="background-image:url('images/home_section_5.jpg');">
+    <div class="section-box">
+    	<div id="home-contact" class="container">
+    		<div class="row">
+    			<div class="col-sm-8 col-sm-offset-3">
+    				<div class="row">
+              <div class="col-sm-4 wow fadeInDown">
+                <div class="opacity-black contact-box text-center">
+                  <div class="icon-heading"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                  <h3>附近景點</h3>
+                  <a href="{{ attractions }}" class="btn btn-default">ATTRACTIONS</a>
+                </div>
+              </div>
+    					<div class="col-sm-4 wow fadeInDown">
+    						<div class="opacity-black contact-box text-center">
+    							<h3 class="home-map-title">聯繫我們</h3>
+                  <a href="{{ contact }}" class="btn btn-default">CONTACT</a>
+    						</div>
+    					</div>
+    					<div class="col-sm-4 wow fadeInDown">
+    						<div class="opacity-black contact-box text-center">
+    						<h3 class="home-map-title">交通資訊</h3>
+    						<a href="{{ location }}" class="btn btn-default">LOCATION</a>
+    						<p class="address">臺中市西屯區市政南一路307號</p>
+    					</div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+  </section>
+
+
+<div class="right-sidebar">
+  <ul class="right-menubar">
+    <li id="section-1"><a onclick="scroll_to(this,'section-news')"><span>最新消息</span> <i class="fa fa-circle" aria-hidden="true"></i></a></li>
+    <li id="section-2"><a onclick="scroll_to(this,'section-about')"><span>關於天韻</span> <i class="fa fa-circle" aria-hidden="true"></i></a></li>
+    <li id="section-3"><a onclick="scroll_to(this,'section-rooms')"><span>客房介紹</span> <i class="fa fa-circle" aria-hidden="true"></i></a></li>
+    <li id="section-4"><a onclick="scroll_to(this,'section-contact')"><span>聯繫方法</span> <i class="fa fa-circle" aria-hidden="true"></i></a></li>
+  </ul>
+</div>
+<script type="text/javascript">
+
+
+
+var scroll_to = function(btn_element,div) {
+
+	var element = $('#'+div),
+      btn = $(btn_element);
+
+	$('html, body').stop().animate({
+        scrollTop: element.offset().top
+      }, {
+        duration: 1000,
+        specialEasing: {
+          width: "linear",
+          height: "easeInOutCubic"
+        }
+      });
+}
+
+var $section = new Array();
+
+$(window).on('load',function() {
+  $('section').each(function(){
+    var $top = $(this).offset().top,
+        $id = $(this).attr('id');
+
+    $section.push($top);
+  });
+  console.log($section);
+});
+
+
+
+$(window).scroll(function(){
+  var $count = $section.length,
+      $scroll = $(this).scrollTop();
+
+  $('.right-menubar li').removeClass('click_this');
+  for (var i = 0; i < $count; i++) {
+    var $status = false;
+    if($section[i] != 0) {
+        if($scroll > $section[i-1] && $scroll <= $section[i]) {
+          $status = true;
+        }
+      }
+    if($status === true) {
+      $('#section-'+i).addClass('click_this');
+    }
+  }
+});
+
+$(document).ready(function(){
+	fix_height();
+});
+
+$(window).resize(function(){
+	fix_height();
+});
+
+var fix_height = function() {
+	var w_hight = $(window).height();
+  var w_width = $(window).width();
+  if(w_width >= 768) {
+    $('.full-hight').height(w_hight);
+  }
+	
+}
+</script>
+{{ footer }}

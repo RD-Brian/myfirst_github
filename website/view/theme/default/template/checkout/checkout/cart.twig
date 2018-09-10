@@ -1,0 +1,72 @@
+  <!-- 購物車內容 -->
+  {% if cart %}
+    
+      
+        <div class="pick-table-title clearfix">
+          <div class="col-sm-1">圖片</div>
+          <div class="col-sm-6 text-center">商品名稱</div>
+          <div class="col-sm-1 text-center">單價</div>
+          <div class="col-sm-2 text-center">數量</div>
+          <div class="col-sm-2 text-center">小計</div>
+<!--           <div class="col-sm-1 text-center">刪除</div> -->
+        </div>
+        {% for product in cart %}
+        <div class="pick-table-content clearfix">       
+          <div class="col-md-1 col-xs-6 pick-table-img">
+            <img src="{{ product.image }}" alt="">
+          </div>
+          <div class="col-md-6 col-xs-6 pick-table-div"> <!-- pick-txt -->
+            <h3>{{ product.name }}</h3>
+            {% if product.options %}
+              {% for option in product.options %}
+                <span>{{ option.value }}</span>
+              {% endfor %}
+            {% endif %}
+            {% if product.additional_options %}
+              {% for additional_option in product.additional_options %}
+                <span>{{ additional_option.name }}</span>
+              {% endfor %}
+            {% endif %}
+          </div>
+          <div class="md-block col-xs-6 clearfix">單價</div>
+          <div class="col-md-1 col-xs-6 md-be pick-table-padding">{{ product.price }}</div>
+          <div class="md-block col-xs-6 clearfix">數量</div>
+          <div class="col-md-2 col-xs-6 md-be pick-table-padding">
+<!--             <button class="btn bg-light-grey" id="less">-</button> -->
+            {{ product.quantity }}
+           <!--  <select name="" class="quantity-input text-center" onchange="cart.update({{ product.product_id }},$(this));" >
+                {% for nums in num %}
+                  {% if product.quantity == nums %}
+                    <option value ="{{ nums }}" selected>{{ nums }}</option>
+                  {% else %}
+                    <option value ="{{ nums }}">{{ nums }}</option>
+                  {% endif %}
+                {% endfor %}
+            </select> -->
+            <!-- <input type="text" class="quantity-input text-center" value="{{ product.quantity }}" id="result"> -->
+<!--             <button class="btn bg-light-grey" id="plus">+</button> -->
+          </div>
+          <div class="md-block col-xs-6 clearfix">小計</div> 
+          <div class="col-md-2 col-xs-6 md-be pick-table-padding"><span class="red">{{ product.count }}</span></div>
+<!--           <div class="md-block col-xs-6 clearfix">刪除</div>  -->
+<!--           <div class="col-md-1 col-xs-6 md-be pick-table-padding"><span class="fa fa-trash" aria-hidden="true" onclick="cart.remove({{ product.cart_id }})"></span></div> -->
+        </div>
+        {% endfor %}
+<!--         <div class="col-sm-12 gift-money">
+          <div class="col-sm-6">
+            <p>             
+                <span>請輸入禮金序號</span>
+                <input type="text" placeholder="禮金序號" class="gift-money-input">  
+                </p><p class="red gift-money-none">您輸入的號碼不正確</p>     
+              <p></p>
+          </div>
+          <div class="col-sm-6">
+            <p>             
+                <span>請輸入折價卷號碼</span>
+                <input type="text" placeholder="折價卷號碼" class="gift-money-input"> 
+                </p><p class="red gift-money-none">您輸入的號碼不正確</p>     
+              <p></p>
+          </div>            
+        </div> -->
+    {% endif %}
+            

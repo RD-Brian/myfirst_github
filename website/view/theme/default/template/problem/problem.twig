@@ -1,0 +1,84 @@
+{{ header }}
+
+    <div class="warp">
+        <div class="problem">
+            <div class="title">
+                <img src="images/problem-title.png" alt="" class="fadeInUp wow" data-wow-delay=".1s">
+                <p class="new-title"><img src="images/problem-img.png" alt="" class="fadeInUp wow" data-wow-delay=".3s"></p>
+            </div>  
+            <div class="new-slide">
+                <div class="slide-block">
+                    <img src="images/slide.png" alt="" class="slide-pc scroll-top fadeInUp wow" data-wow-delay=".5s">
+                    <img src="images/i-slide.svg" alt="" class="slide-mobile scroll-top">
+                    <p><img src="images/about-slide-before.png" alt="" data-wow-delay=".7s" class="fadeInUp wow"></p>                   
+                </div>
+            </div>
+            <!--  -->
+            <div class="problem-container fadeInUp wow" data-wow-delay=".9s">
+                <div class="problem-qa">Q&A
+                    <i class="fa fa-list-ul" aria-hidden="true"></i>
+                </div>
+                <div class="problem-btn clearfix">
+                    {% for problem_category in problems_category %}
+                    <div><a href="{{ problem_category.href }}" class="problem-active">{{ problem_category.name }}</a></div>
+                    {% endfor %}
+
+                </div>
+                <div class="problem-contianer">
+                    {% if problems %}
+                        {% for problem in problems %}
+                            <div class="problem-div fadeInUp wow" data-wow-delay=".1s">
+                                <h1>
+                                    <span class="fa fa-question-circle-o" aria-hidden="true"></span>
+                                    {{ problem.name }}
+                                    <i class="fa fa-arrow-circle-up" aria-hidden="true">TOP</i>
+                                </h1>
+                                <p>
+                                    {{ problem.description }}
+                                </p>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                    <div class="problem-div fadeInUp wow" data-wow-delay=".1s">
+                        此問題尚未回答，敬請稍後服務人員更新
+                    </div>
+                    {% endif %}
+                </div><!-- problem-contianer -->
+            </div>
+            <!--  -->
+            <div class="new-slide-bottom clearfix">
+                <p>
+                    <img src="images/about-slide-before.png" alt="" class="fadeInUp wow" data-wow-delay=".1s">
+                </p>            
+                <p>
+                    <img src="images/problem-img.png" alt="" class="fadeInUp wow" data-wow-delay=".3s">
+                </p>
+                <p>
+                    <img src="images/i-slide-bottom.png" alt="" class="slide-pc scroll-bottom fadeInUp wow" data-wow-delay=".7s" >
+                    <img src="images/i-slide-bottom.svg" alt="" class="slide-mobile scroll-bottom">
+                </p>
+            </div>      
+        </div><!-- problem -->
+
+    </div><!-- warp -->
+<script type="text/javascript"> 
+$(function(){   
+    $(".fa-arrow-circle-up").click(function(){      
+        $('html, body').animate({scrollTop: $(".problem-container").offset().top -130}, 900);
+        return false;
+    });
+    $(".scroll-top").click(function(){      
+        $('html, body').animate({scrollTop: $(".problem-container").offset().top -130}, 900);
+        return false;
+    });
+     $(".scroll-bottom").click(function(){
+        $("html,body").animate({scrollTop:0},900);
+        return false;
+    }); 
+    $(".problem-qa").click(function(){
+        $(".problem-btn").slideToggle("");      
+    }); 
+
+});
+</script>
+{{ footer }}

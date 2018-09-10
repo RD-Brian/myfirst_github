@@ -1,0 +1,11 @@
+{% for key,total in totals %}
+<div class="clearing text-right">
+	{% if key == 2 %}
+	<p class="clearing-last">{{ total.title }}：<span class="clearing-span red">{{ total.text }}</span></p>
+	{% else %}
+	<p>{{ total.title }}：<span class="clearing-span">{{ total.text }}</span></p>
+	{% endif %}
+
+</div>
+
+{% endfor %}

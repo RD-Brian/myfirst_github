@@ -1,0 +1,22 @@
+          
+        {% if payment_methods %}
+            {% for payment_method in payment_methods %}
+              {{ payment_method }}
+            {% endfor %}
+          <script type="text/javascript">
+          $('input[type=\'radio\'][name=\'payment_method\']').on('change',function(){
+              var $payment_method = $(this).val();
+              $.ajax({
+                  url: '{{ renew_total }}',
+                  type: 'post',
+                  data: 'payment_method=' + $payment_method,
+                  dataType: 'html',
+                  success:function(html) {
+                      console.log(html);
+                      $('.cart-checkout').html(html);
+                  }
+              });
+          });
+          </script>
+        {% endif %}
+

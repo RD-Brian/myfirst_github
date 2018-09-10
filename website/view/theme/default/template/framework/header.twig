@@ -1,0 +1,143 @@
+{{ doc_head }}
+	{% if is_home %}
+	<div class="loadingArea">
+	    <img src="images/Loading.gif" alt="">
+	    <img src="images/loading.svg" alt="">     
+	</div>
+	{% endif %}
+<div class="hearder">
+	<div class="taggle-menu">
+		<div class="container">				
+			<div class="logo" >
+				<a href="{{ home }}">
+					<img src="images/logo.png" alt="" class="logo-img-top">
+					<img src="images/toggle-lolgo.svg" alt="" class="logo-img">
+				</a>
+			</div>
+			{{ menu }}
+		</div><!-- taggle-menu -->
+	</div>
+	<div class="cart-list-hide"></div>
+</div><!-- hearder -->
+<!-- login -->
+	<div class="login-box">		
+			<div class="login clearfix">
+				<div class="login-data">
+					<input type="email" name="email" placeholder="帳號" class="login-input">
+					<input type="password" name="password" placeholder="密碼" class="login-input">
+					<p class="error_login" style="text-align: center;margin-bottom: 10px; color:red; display: none;">帳號密碼有誤</p>
+					<p class="approval_login" style="color:red;display:none;text-align: center; margin-bottom: 10px;">此帳號尚未通過審核</p>
+					<div class="login-div">
+						<button class="member-login" onclick="login();">會員登入</button>
+						{% for module in modules %}
+              {{ module }}
+            {% endfor %}
+					</div>
+					<div class="login-item">
+						<button href="" class="main-color btn-forget">忘記密碼?</button>
+						<span>沒有會員?</span>
+						<a href="{{ register }}" style="color:#034FAA ">立即加入</a>
+					</div>
+				</div>
+
+				<div class="login-forget">
+					<button class="reset-login">重新登入</button>
+					<input type="text" class="login-input" placeholder="e-mail">
+					<button class="send-out">送出</button>
+					
+				</div>
+				<div class="login-txt">
+					<h1>首次購物，無須註冊</h1>
+					<p>本站訂購須為會員身分，第一次購買結帳後，將自動成為會員。</p>
+				</div>
+				<div class="login-close">
+					<i class="fa fa-remove"></i>
+				</div>
+			</div>	
+		<div class="login-touch"></div>	
+	</div>
+	<!-- login -->	
+<script>		
+$(function(){		
+	$(window).scroll(function(){
+        var scrollTop = $(window).scrollTop();
+        if(scrollTop > 168){
+            $('.taggle-menu').addClass('shrink');            
+        }else{
+            $('.taggle-menu').removeClass('shrink');
+        }
+    });  
+    $( ".login-btn" ).click(function() {
+			$( ".login-box" ).fadeToggle( "slow" );
+		});
+		$('.btn-forget').click(function(){
+			$('.login-forget').slideDown(200);
+			$('.login-data').slideUp(200);
+		});
+		$('.reset-login').click(function(){
+			$('.login-data').slideDown(200);
+			$('.login-forget').slideUp(200);
+	});	 
+	$( ".login-touch" ).click(function() {
+		$( ".login-box" ).fadeToggle( "hide" );
+	});
+	$( ".login-close " ).click(function() {
+		$( ".login-box" ).fadeToggle( "hide" );
+	});  
+	$( ".cart-btn" ).click(function() {
+		$( ".cart-list" ).fadeToggle( "slow" );	
+		$( ".cart-list-hide" ).fadeToggle( "slow" );		
+	}); 
+	$( ".cart-list-hide" ).click(function() {
+		$( ".cart-list" ).fadeToggle( "hide" );	
+		$( this ).fadeToggle( "hide" );		
+	}); 
+	$( ".menu-btn" ).click(function() {
+		$( ".menu-btn-top" ).toggleClass( "menu-btn-top2" );
+		$( ".menu-btn-bottom" ).toggleClass( "menu-btn-bottom2" );
+		$( ".menu-btn-middle" ).toggleClass( "menu-btn-middle2" );
+	});
+	$( ".menu-btn" ).click(function() {
+		$( ".menu" ).slideToggle( "" );
+	});
+});
+</script>
+
+<!-- login AJAX -->
+<script type="text/javascript">
+	var login = function(){
+		var email = $('input[name=\'email\']').val();
+		var password = $('input[name=\'password\']').val();
+		$.ajax({
+			url: '{{ login_confirm }}',
+			type: 'post', 
+      data: 'email=' + email + '&password=' + password,
+      dataType: 'json',
+
+      success: function(json) {
+      	
+      	if(json['unapproval'] == true){
+      		$('.approval_login').css('display','block');
+      		$('.error_login').css('display','none');
+      	}
+      	else{
+      		if(json['msg'] == false){
+	      		$('.error_login').css('display','block');
+	      		$('.approval_login').css('display','none');
+	      	}	else{
+	      			location.reload();
+	      			alert('登入成功');      		
+	      	}
+      	}
+      	
+      },
+
+
+			
+		});
+	};
+</script>
+
+<body>
+
+

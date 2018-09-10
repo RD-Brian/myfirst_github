@@ -1,0 +1,114 @@
+{{ header }}
+<div class="warp">
+      <div class="register">
+        <div class="title">
+          <img src="images/register-title.png" alt="" class="fadeInUp wow" data-wow-delay=".1s">
+          <p class="new-title">
+            <img src="images/register-img.png" alt="" class="fadeInUp wow" data-wow-delay=".3s">
+          </p>
+        </div>
+        <div class="new-slide">
+          <div class="slide-block">
+            <img src="images/slide.png" alt="" class="scroll-top slide-pc fadeInUp wow" data-wow-delay=".5s">
+            <img src="images/i-slide-bottom.svg" alt="" class="slide-mobile scroll-top">
+            <p><img src="images/about-slide-before.png" alt="" class="fadeInUp wow" data-wow-delay=".7s"></p>         
+          </div>
+        </div>
+        <!--  -->
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+          <div class="register-container fadeInUp wow" data-wow-delay=".8s">
+            <div class="register-title fadeInUp wow" data-wow-delay=".9s">
+              <h6><i class="fa fa-user-plus" aria-hidden="true" style="padding-right: 5px;"></i>加入會員須知</h6>
+            </div>  
+            <div class="register-multi-line fadeInUp wow" data-wow-delay="1.1s">
+              <p>{{ notice }}</p>
+            </div>
+            <div class="multi-label">
+              <label><input name="label-01" type="checkbox" id="label-01" value="1"/>請打勾，表示同意以上條款</label>
+              {% if error_check %}
+                <div class="text-danger">{{ error_check }}</div>
+              {% endif %}
+            </div>
+            <div class="register-div">
+              <h6 class="fadeInUp wow" data-wow-delay=".2s">
+                <i class="fa fa-pencil-square-o" aria-hidden="true" style="padding-right: 5px"></i>會員資料
+              </h6>
+            </div>
+            <div class="fill-in-table-warp clearfix fadeInUp wow" data-wow-delay=".3s">
+              <div class="fill-in-table">
+                <span class="fill-in-span"><span class="fill-icon">※</span>姓<span class="fill-spacing"></span>名:</span>
+                <input type="text" name="name" value="{{ name }}" placeholder="姓名" id="input-lastname" class="fill-input" />
+                    {% if error_name %}
+                    <div class="text-danger">{{ error_name }}</div>
+                    {% endif %}
+              </div>
+              <div class="fill-in-table">
+                <span class="fill-in-span"><span class="fill-icon">※</span>電子郵件:</span>
+                <input type="email" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" class="fill-input" />
+                    {% if error_email %}
+                    <div class="text-danger">{{ error_email }}</div>
+                    {% endif %}
+                    {% if error_warning %}
+                    <div class="text-danger">{{ error_warning }}</div>
+                    {% endif %}
+              </div>
+              <div class="fill-in-table">
+                <span class="fill-in-span"><span class="fill-icon">※</span>行動電話:</span>
+                <input type="tel" name="mobile" value="{{ mobile }}" placeholder="{{ entry_mobile }}" id="input-mobile" class="fill-input" />
+                    {% if error_mobile %}
+                    <div class="text-danger">{{ error_mobile }}</div>
+                    {% endif %}
+              </div>
+              <div class="fill-in-table">
+                <span class="fill-in-span"><span class="fill-icon">※</span>設定密碼:</span>
+                 <input type="password" name="password" value="{{ password }}" placeholder="{{ entry_password }}" id="input-password" class="fill-input" />
+                    {% if error_password %}
+                    <div class="text-danger">{{ error_password }}</div>
+                    {% endif %} 
+              </div>
+              <div class="fill-in-table">
+                <span class="fill-in-span"><span class="fill-icon">※</span>確認密碼:</span>
+                <input type="password" name="confirm" value="{{ confirm }}" placeholder="{{ entry_confirm }}" id="input-confirm" class="fill-input" />
+                    {% if error_confirm %}
+                    <div class="text-danger">{{ error_confirm }}</div>
+                    {% endif %}
+              </div> 
+              <div class="clearfix">
+                {% if customer_approval %}
+                    <div class="text-success">{{ customer_approval }}</div>
+                {% endif %} 
+              </div>                               
+            </div>
+            <div class="register-btn clearfix fadeInUp wow facebook_register" data-wow-delay=".2s">
+                <button class="fill-btn" >確認送出</button>
+                  {% for module in modules %}
+                    {{ module }}
+                  {% endfor %}
+             </div>
+          </div>
+        </form>
+        <!--  -->
+        <div class="new-slide-bottom clearfix">
+          <p><img src="images/about-slide-before.png" alt="" class="fadeInUp wow" data-wow-delay=".1s"></p>
+          <p><img src="images/register-img.png" alt="" class="fadeInUp wow" data-wow-delay=".2s"></p>
+          <p>
+            <img src="images/i-slide-bottom.png" alt="" class="slide-pc scroll-bottom fadeInUp wow" data-wow-delay=".3s">
+            <img src="images/i-slide-bottom.svg" alt="" class="slide-mobile scroll-bottom">
+          </p>
+        </div>
+      </div><!-- register -->
+    
+  </div><!-- warp -->
+<script type="text/javascript"> 
+$(function(){ 
+  $(".scroll-top").click(function(){    
+    $('html, body').animate({scrollTop: $(".register-container").offset().top -130}, 900);
+    return false;
+  });
+   $(".scroll-bottom").click(function(){
+    $("html,body").animate({scrollTop:0},900);
+    return false;
+  });   
+});
+</script>
+{{ footer }}

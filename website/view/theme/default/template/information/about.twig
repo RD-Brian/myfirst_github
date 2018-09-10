@@ -1,0 +1,91 @@
+{{ header }}
+<div class="warp">
+        <div class="about">
+            <div class="title fadeInUp wow" data-wow-delay=".1s">
+                <img src="images/about-title-img.png" alt="">
+            </div>  
+            <div class="about-article">
+                <p class="fadeInUp wow" data-wow-delay=".1s">在日常隨手一杯咖啡的世代，</p>
+                <p class="fadeInUp wow" data-wow-delay=".15s">我們漸漸培養出對咖啡的堅持品味，細細品嚐生活態度。</p>
+                <p class="fadeInUp wow" data-wow-delay=".2s">咖啡好事多揀練來自世界各地的咖啡好豆，</p>
+                <p class="fadeInUp wow" data-wow-delay=".25s">專研不同烘焙手法引出其風味，淬煉出咖啡豆靈魂。</p>
+
+                <p class="about-article-p fadeInUp wow" data-wow-delay=".3s">我們不能說是最專業，但肯定是最專注。</p>
+                <p class="fadeInUp wow" data-wow-delay=".35s">不斷磨練、嘗試，分享所學、所認知，</p>
+                <p class="fadeInUp wow" data-wow-delay=".4s">給忙碌的族群們，</p>
+                <p class="fadeInUp wow" data-wow-delay=".45s">讓匆碌的日常漫進一股香醇的咖啡風味。</p>
+            </div>
+            <div class="about-slide">
+                <div class="about-slide-block">
+                    <img src="images/i-slide.png" alt="" class="scroll-top slide-pc">
+                    <img src="images/i-slide.svg" alt="" class="slide-mobile scroll-top">
+                    <p><img src="images/about-slide-before.png" alt=""></p>                 
+                </div>
+            </div> 
+            <div class="about-carousel fadeIn wow" data-wow-delay=".2s">
+                <div class="i-carousel">
+                    <div class="swiper-container-carousel">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="images/i-photo-03.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="images/i-photo-02.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="images/i-photo-01.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="images/i-photo-03.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="images/i-photo-02.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="images/i-photo-01.jpg" alt=""></div>            
+                        </div>              
+                        <div class="swiper-pagination"></div>               
+                    </div>
+                <script>           
+                    var swiper = new Swiper('.swiper-container-carousel', {                 
+                        slidesPerView: 3,
+                        slidesPerColumn: 1,   
+                        autoplay: 3000, 
+                        breakpoints: {  
+                        1024: {
+                            slidesPerView: 3,
+                            
+                        },              
+                        767: {
+                            slidesPerView: 2,
+                            
+                        },
+                        425: {
+                            slidesPerView: 1,
+                            
+                        },
+                    }                
+                    });
+                </script>
+                </div><!-- i-carousel -->
+            </div><!-- about-carousel -->
+            <div class="about-slide-bottom">
+                <p>
+                    <img src="images/about-slide-after.png" alt="" class="fadeInUp wow" data-wow-delay=".1s">
+                </p>
+                <p>
+                    <img src="images/about-title-bottom-img.png" alt="" class="fadeInUp wow" data-wow-delay=".3s">
+                </p>
+                <img src="images/i-slide-bottom.png" alt="" class="slide-pc scroll-bottom fadeInUp wow" data-wow-delay=".5s">
+                <img src="images/i-slide-bottom.svg" alt="" class="slide-mobile scroll-bottom">
+            </div>
+            <div class="about-right-img fadeInLeft wow" data-wow-delay=".3s">
+                <img src="images/i-story-coffee.png" alt="">
+            </div>
+            <div class="about-left-img fadeInRight wow" data-wow-delay=".3s">
+                <img src="images/about-left-img.png" alt="">
+            </div>
+        </div><!-- about -->
+    </div><!-- warp -->
+<script type="text/javascript"> 
+$(function(){   
+    $(".scroll-top").click(function(){      
+        $('html, body').animate({scrollTop: $(".i-carousel").offset().top -130}, 900);
+        return false;
+    });
+     $(".scroll-bottom").click(function(){
+        $("html,body").animate({scrollTop:0},900);
+        return false;
+    });     
+});
+</script>
+{{ footer }}

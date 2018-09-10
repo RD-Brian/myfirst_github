@@ -1,0 +1,60 @@
+<div class="cart-details-title">
+    <p>購物車 / <span> shopping cart</span></p>
+</div>
+    <div class="checkout">
+        {% if cart %}
+        <div class="checkout-txt clearfix">
+            <div class="checkout-txt-01">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i> {{ text_items }}
+            </div>
+            <div class="checkout-txt-02">&nbsp;</div>
+            <div class="checkout-txt-03">單價</div>
+            <div class="checkout-txt-04">數量</div> 
+            <div class="checkout-txt-05">小計</div>
+        </div>
+        {% for product in cart %}
+        <div class="checkout-item clearfix">
+            <span class="checkout-01-mobile">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i> 商品
+            </span>
+            <div class="checkout-item-01">                       
+                <img src="{{ product.image }}" alt="">
+            </div>     
+
+            <div class="checkout-item-02">
+                <p>商品名稱 : {{ product.name }}</p>
+                <p>商品編號 : {{ product.ID }}</p>                     
+            </div>
+            <span class="cart-txt-03-mobile">單價</span>  
+            <div class="checkout-item-03">
+                <p>{{ product.price }}</p>
+                    <!-- <p style="color:red">40%off</p> -->
+            </div>  
+            <span class="cart-txt-04-mobile">數量</span>    
+            <div class="checkout-item-04">
+                <p>{{ product.quantity }}</p>
+            </div>  
+            <span class="cart-txt-05-mobile">小計</span>   
+            <div class="checkout-item-05">
+                <p>{{ product.count }}</p>                                          
+            </div>                       
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="cart-txt clearfix">
+            <div class="cart-txt-01">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i> {{ text_items }}
+            </div>
+            <div class="cart-txt-02">&nbsp;</div>
+            <div class="cart-txt-03">單價</div>
+            <div class="cart-txt-04">數量</div> 
+            <div class="cart-txt-05">小計</div>
+        </div>
+        <div class="cart-product clearfix">
+            <p class="text-center">購物車內無商品</p>
+            <a href="{{ product_category }}">
+                <p class="text-center"><i class="fa fa-reply" aria-hidden="true"></i>回商城逛逛</p>
+            </a>
+        </div>
+        {% endif %}
+    </div>          

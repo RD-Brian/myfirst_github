@@ -1,0 +1,98 @@
+{{ header }}
+<div class="warp">
+  <div class="my-cart">
+    <div class="title">
+        <img src="images/contact-title.png" alt="" class="fadeInUp wow" data-wow-delay=".1s">
+        <p class="new-title"><img src="images/contact-img-one.png" alt="" class="fadeInUp wow" data-wow-delay=".3s"></p>
+    </div>
+    <div class="new-slide">
+      <div class="slide-block">
+        <img src="images/slide.png" alt="" class="scroll-top slide-pc fadeInUp wow" data-wow-delay=".5s">
+        <img src="images/i-slide.svg" alt="" class="slide-mobile scroll-top">
+        <p><img src="images/about-slide-before.png" alt="" class="fadeInUp wow" data-wow-delay=".7s"></p>         
+      </div>
+    </div>
+    <div class="container">
+      <div class="cart fadeInUp wow" data-wow-delay=".9s">
+        <div class="cart-title clearfix">     
+            <div class="cart-title-div-chen">
+              <span>&nbsp</span>              
+              <p >選擇付款方式</p>
+              <i><img src="images/member-icon.svg" alt=""></i>
+            </div>
+            <div class="cart-title-div-chen-no">
+              <span>&nbsp</span>              
+              <p>填寫送貨資料</p>
+              <i><img src="images/member-icon-none.svg" alt=""></i>
+            </div>
+            <div class="cart-title-div-chen-no">
+              <span>&nbsp</span>                
+              <p>完成訂單</p>
+              <i><img src="images/member-icon-none.svg" alt=""></i>
+            </div>        
+          <div class="row"></div>
+        </div>    
+        <div class="pick-up-content">
+          <div class="pick-up-title fadeInUp wow" data-wow-delay=".1s">
+            <img src="images/icon_arrow.gif" alt=""><span>付款方式</span>
+          </div>
+          <!-- 付款方式 -->
+          {{ payment_method }}
+        </div><!-- pick-up-content -->
+        <!-- 購物車詳情 -->
+        <div class="row"></div>
+        <div class="pick-table clearfix reload-price"><!---->
+          <div class="_reload-price">
+            {{ shopping_cart }}
+            <div class="cart-checkout">{{ shopping_total }}</div>
+          </div>
+        </div><!-- pick-table -->
+
+        <div class="shoppong-btn text-right">
+          <a href="{{ product_category }}"><i class="fa fa-hand-o-left" aria-hidden="true"></i>回商城繼續逛</a>
+          <a onclick="check_payment_method();" style="cursor:pointer;">下一步<i class="fa fa-hand-o-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+    </div>  
+  </div>
+
+  <script type="text/javascript">
+    var check_payment_method = function() {
+
+      for(i=0,checked=0;i < $('input[type=radio][name=\'payment_method\']').length;i++){
+        if($('input[type=radio][name=\'payment_method\']')[i].checked){
+          checked++
+        }
+      }
+        if(checked > 0){
+          location.href = "{{ checkout }}";
+        }  
+        else{
+          alert('您尚未選擇付款方式');
+        }    
+    }
+  </script>
+  <script type="text/javascript"> 
+    $(function(){ 
+      $(".scroll-top").click(function(){    
+        $('html, body').animate({scrollTop: $(".cart").offset().top -130}, 900);
+        return false;
+      });
+       $(".scroll-bottom").click(function(){
+        $("html,body").animate({scrollTop:0},900);
+        return false;
+      });   
+    });
+  </script>
+  <div class="new-slide-bottom clearfix">
+    <p><img src="images/about-slide-after.png" alt="" class="fadeInUp wow" data-wow-delay=".1s"></p>
+    <p><img src="images/contact-img-one.png" alt="" class="fadeInUp wow" data-wow-delay=".3s"></p>
+    <p>
+      <img src="images/i-slide-bottom.png" alt="" class="slide-pc scroll-bottom fadeInUp wow" data-wow-delay=".5s">
+      <img src="images/i-slide-bottom.svg" alt="" class="slide-mobile scroll-bottom">
+    </p>
+  </div>
+</div>  
+
+{{ footer }}

@@ -1,0 +1,103 @@
+{{ header }}
+<!-- <div id="page_wapper">
+  <div class="products-img"></div>
+  <div class="login">
+    <div class="frames">
+      <div class="title">
+        <i class="fa fa-user-circle-o" aria-hidden="true"></i>會員登入        
+      </div>
+      <div class="login-enter">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+        <div class="login-main clearfix">
+          <div class="login-left">會員帳號:</div>
+          <div class="login-right"><input type="email" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" class="login-input" /></div>
+              {% if error_email %}
+              <div class="text-danger">{{ error_email }}</div>
+              {% endif %}
+        </div>
+        <div class="login-main clearfix">
+          <div class="login-left">會員密碼:</div>
+          <div class="login-right"><input type="password" name="password" value="{{ password }}" placeholder="{{ entry_password }}" id="input-password" class="login-input" />
+            <a href="{{ forgotten }}" class="login-right-a">忘記密碼?</a>
+          </div>
+              {% if error_password %}
+              <div class="text-danger">{{ error_password }}</div>
+              {% endif %}          
+        </div>
+        {{ captcha }}
+        <div class="login-main clearfix">
+          <div class="login-left">驗 證 碼:</div>
+          <div class="login-right">
+            <img src="images/code.jpg" alt="" style="width: 20%">
+            <a class="fa fa-refresh" aria-hidden="true"></a>
+            <input type="text" class="login-input2">
+          </div>
+        </div>        
+        <div class="login-btn">
+          <input type="submit" value="登入" class="btn btn-primary" />
+        </div>                
+      </div>
+    </form>
+      <div class="login-btn2"><a href="{{ register }}">我要註冊會員</a></div>
+    </div>
+  </div>
+</div>  -->
+
+
+<!--  -->
+<div id="page_wapper">
+  <div class="products-img"></div>
+  <span class="login-button">會員登入</span>
+  <div class="login">    
+    <div class="login-wrap clearfix">
+      <div class="login-left">
+        <div class="login-title">
+          <img src="images/login-logo.png" alt=""><span>會員登入</span>
+        </div>
+        <div>
+          <input type="text" class="login--input" placeholder="請輸入您的帳號">
+        </div>
+         <div>
+          <input type="text" class="login--input" placeholder="請輸入您的密碼">
+          <p>英文字母需區分大小寫</p>
+        </div>
+        <div>
+          <input type="text" class="login--input login--input-code" placeholder="請輸入右邊的數字">    
+          <span><img src="images/code.jpg" alt=""></span>      
+        </div>
+        <div>
+          <input type="checkbox" class="" id="checkbox-01" style="margin-top: 0">    
+          <label for="checkbox-01">記住我的帳號</label>           
+        </div>
+        <div class="login--btn">
+          <button class="login-btn">
+            登入 <span>Login</span>
+          </button>
+        </div>
+        <div class="login--registered">
+          <a href="">馬上註冊</a>
+          <a href="">忘記密碼</a>
+        </div>
+      </div>
+      <div class="login-right">
+          <ul class="login-right-ul">
+            <li><a href=""><img src="images/facebooklogin.png" alt=""></a></li>
+            <li><a href=""><img src="images/googlelogin.png" alt=""></a></li>
+            <li><a href=""><img src="images/linelogin.png" alt=""></a></li>
+            <li><a href=""><img src="images/visitorslogin.png" alt=""></a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>  
+
+<!--  -->
+{{ footer }}
+
+<script>
+$(document).ready(function(){
+    $(".login-button").click(function(){
+      $(".login-wrap").fadeToggle("slow");  
+    });
+});
+</script>

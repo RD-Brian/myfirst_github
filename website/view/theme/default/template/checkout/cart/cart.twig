@@ -1,0 +1,67 @@
+  <!-- 購物車內容 -->
+  {% if cart %}
+    
+      
+        <div class="pick-table-title clearfix">
+          <div class="col-sm-1">圖片</div>
+          <div class="col-sm-6 text-center">商品名稱</div>
+          <div class="col-sm-1 text-center">單價</div>
+          <div class="col-sm-2 text-center">數量</div>
+          <div class="col-sm-1 text-center">小計</div>
+          <div class="col-sm-1 text-center">刪除</div>
+        </div>
+        {% for k,product in cart %}
+        <div class="pick-table-content clearfix">       
+          <div class="col-md-1 col-xs-6 pick-table-img">
+            <img src="{{ product.image }}" alt="">
+          </div>
+          <div class="col-md-6 col-xs-6 pick-table-div"> <!-- pick-txt -->
+            <h3>{{ product.name }}</h3>
+            {% if product.options %}
+              {% for option in product.options %}
+                <span>{{ option.value }}</span>
+              {% endfor %}
+            {% endif %}
+            {% if product.additional_options %}
+              {% for additional_option in product.additional_options %}
+                <span>{{ additional_option.name }}</span>
+              {% endfor %}
+            {% endif %}
+          </div>
+          <div class="md-block col-xs-6 clearfix">單價</div>
+          <div class="col-md-1 col-xs-6 md-be pick-table-padding">{{ product.price }}</div>
+          <div class="md-block col-xs-6 clearfix">數量</div>
+          <div class="col-md-2 col-xs-6 md-be pick-table-padding md-be-3">
+            <button class="btn bg-light-grey _grey" id="diminish"  onclick="cart.diminish('{{ k }}');">-</button>
+              <input type="text" name="product_quantity" class="quantity-input text-center product_quantity{{ k }}" value="{{ product.quantity }}">
+            <button class="btn bg-light-grey _grey" id="plus" onclick="cart.plus('{{ product.product_id }}',is_plus=true,'{{ k }}');">+</button>
+            <button class="btn bg-light-grey _grey" id="update" onclick="cart.update('{{ product.product_id }}','{{ k }}');"><i class="fa fa-refresh"></i></button>
+          </div>
+          <div class="md-block col-xs-6 clearfix">小計</div> 
+          <div class="col-md-1 col-xs-6 md-be pick-table-padding"><span class="red">{{ product.count }}</span></div>
+          <div class="md-block col-xs-6 clearfix">刪除</div> 
+          <div class="col-md-1 col-xs-6 md-be pick-table-padding">
+            <span class='btn bg-light-grey _grey' id="remove" onclick="cart.remove({{ product.cart_id }})">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
+        {% endfor %}
+<!--         <div class="col-sm-12 gift-money">
+          <div class="col-sm-6">
+            <p>             
+                <span>請輸入禮金序號</span>
+                <input type="text" placeholder="禮金序號" class="gift-money-input">  
+                </p><p class="red gift-money-none">您輸入的號碼不正確</p>    
+              <p></p>
+          </div>
+          <div class="col-sm-6">
+            <p>             
+                <span>請輸入折價卷號碼</span>
+                <input type="text" placeholder="折價卷號碼" class="gift-money-input"> 
+                </p><p class="red gift-money-none">您輸入的號碼不正確</p>     
+              <p></p>
+          </div>            
+        </div> -->
+    {% endif %}
+            

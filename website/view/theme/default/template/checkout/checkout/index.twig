@@ -1,0 +1,440 @@
+{{ header }}
+<div class="warp">
+    <div class="my-cart">
+      <div class="title">
+        <img src="images/contact-title.png" alt="" class="fadeInUp wow" data-wow-delay=".1s">
+        <p class="new-title"><img src="images/contact-img-one.png" alt="" class="fadeInUp wow" data-wow-delay=".3s"></p>
+      </div>
+      <div class="new-slide">
+        <div class="slide-block">
+        <img src="images/slide.png" alt="" class="scroll-top slide-pc fadeInUp wow" data-wow-delay=".5s">
+        <img src="images/i-slide.svg" alt="" class="slide-mobile scroll-top">
+        <p><img src="images/about-slide-before.png" alt="" class="fadeInUp wow" data-wow-delay=".7s"></p>         
+        </div>
+      </div>
+    <div class="container">
+      <div class="cart fadeInUp wow" data-wow-delay=".9s">
+        <div class="cart-title clearfix">     
+            <div class="cart-title-div-chen">
+              <span>&nbsp</span>              
+              <p >選擇付款方式</p>
+              <i><img src="images/member-icon.svg" alt=""></i>
+            </div>
+            <div class="cart-title-div-chen">
+              <span>&nbsp</span>              
+              <p>填寫送貨資料</p>
+              <i><img src="images/member-icon.svg" alt=""></i>
+            </div>
+            <div class="cart-title-div-chen-no">
+              <span>&nbsp</span>                
+              <p>完成訂單</p>
+              <i><img src="images/member-icon-none.svg" alt=""></i>
+            </div>        
+          <div class="row"></div>
+        </div>
+        <form action="{{ action }}" id="checkout-form" method="post" enctype="multipart/form-data" class="form form-horizontal">
+          <div class="pick-up-content">
+            <div class="pick-up-title">
+              <img src="images/icon_arrow.gif" alt=""><span>付款方式</span>
+            </div>
+            <div class="col-md-12 chenk-pick-up">
+              <div class="col-md-12">{{ payment }}</div>      
+              
+            </div>
+          </div>
+
+          <div class="checkout-data clearfix">
+            <div class="col-md-6 padding-left-none">
+              <div class="well clearfix">
+                <div class="well-title">訂購人資訊</div>
+                <div class="well-div clearfix">             
+                  <span class="well-div-span">姓<span class="spacing"></span>名:</span>
+                  <input type="text" name="payment_name" id="payment_name" class="well-input" value="{{ payment_name }}" >
+                      {% if warning.payment_name %}
+                      <div class="text-danger">{{ warning.payment_name }}</div> 
+                      {% endif %}
+                </div>
+                <div class="well-div clearfix">
+                  <span class="well-div-span">行動電話:</span>
+                  <input type="text" name="payment_mobile" id="payment_mobile" class="well-input" value="{{ payment_mobile }}">
+                      {% if warning.payment_mobile %}
+                      <div class="text-danger">{{ warning.payment_mobile }}</div> 
+                      {% endif %}
+                </div>
+                <div class="well-div clearfix">
+                  <span class="well-div-span">電子信箱:</span>
+                  <input type="text" name="payment_email" id="payment_email" class="well-input" value="{{ payment_email }}">
+                      {% if warning.payment_email %}
+                      <div class="text-danger">{{ warning.payment_email }}</div> 
+                      {% endif %}
+                </div>
+                <div class="well-div clearfix">
+                  <span class="well-div-span">訂購地址:</span>
+                  <div class="well-div-div">                    
+                      <select name="payment_city_id" id="payment_city_id" class="select well-input">
+                        <option value="">{{ text_select }}</option>
+                          {% for payment_city in payment_cities %}
+                            {% if payment_city.city_id == payment_city_id %}
+                              <option value="{{ payment_city.city_id }}" selected="selected">{{ payment_city.name }}</option>
+                            {% else %}
+                              <option value="{{ payment_city.city_id }}">{{ payment_city.name }}</option>
+                            {% endif %}
+                          {% endfor %}
+                      </select>
+                      {% if warning.payment_city_id %}                      
+                      {% endif %}
+                      <!-- zone -->
+                      <p class="text-danger">{{ warning.payment_city_id }}</p>                       
+                    </div>
+                  <div class="well-div-div">
+                    <select name="payment_zone_id" id="payment_zone_id" class="select well-input">
+                      <option value="">{{ text_select }}</option>
+                        {% for payment_zone in payment_zones %}
+                          {% if payment_zone.zone_id == payment_zone_id %}
+                            <option value="{{ payment_zone.zone_id }}" selected="selected">{{ payment_zone.name }}</option>
+                          {% else %}
+                            <option value="{{ payment_zone.zone_id }}">{{ payment_zone.name }}</option>
+                          {% endif %}
+                        {% endfor %}
+                    </select>
+                    {% if warning.payment_zone_id %}
+                    <p class="text-danger">{{ warning.payment_zone_id }}</p> 
+                    {% endif %}
+                  </div>
+                  <span class="well-div-span m-624-none">&nbsp;</span>
+                  <input type="hidden" name="payment_postcode" value="{{ payment_postcode }}" />
+                  <input type="text" name="payment_address" id="payment_address" class="well-input" value="{{ payment_address }}">
+                    {% if warning.payment_address %}
+                    <div class="text-danger">{{ warning.payment_address }}</div> 
+                    {% endif %}
+                </div>          
+              </div>        
+            </div>
+
+            <div class="col-md-6 padding-right-none">
+              <div class="well clearfix">
+                <div class="well-title">收件人資訊
+                  <span>
+                    {% if the_same %}
+                      <input type="checkbox" name="the_same" id="the_same" value="1" checked="checked">
+                    {% else %}
+                      <input type="checkbox" name="the_same" id="the_same" value="1" >
+                    {% endif %}
+                    <label for="the_same">同訂購人資料 </label>
+                  </span>
+                </div>
+                <div class="well-div clearfix">             
+                  <span class="well-div-span">姓<span class="spacing"></span>名:</span>
+                  <input type="text" name="shipping_name" id="shipping_name" class="well-input shipping-input" value="{{ shipping_name }}" >
+                      {% if warning.shipping_name %}
+                      <div class="text-danger">{{ warning.shipping_name }}</div> 
+                      {% endif %}
+                </div>
+                <div class="well-div clearfix">
+                  <span class="well-div-span">行動電話:</span>
+                  <input type="text" name="shipping_mobile" id="shipping_mobile" class="well-input shipping-input" value="{{ shipping_mobile }}">
+                      {% if warning.shipping_mobile %}
+                      <div class="text-danger">{{ warning.shipping_mobile }}</div> 
+                      {% endif %}
+                </div>
+                <div class="well-div clearfix">
+                  <span class="well-div-span">電子信箱:</span>
+                  <input type="text" name="shipping_email" id="shipping_email" class="well-input shipping-input" value="{{ shipping_email }}">
+                      {% if warning.shipping_email %}
+                      <div class="text-danger">{{ warning.shipping_email }}</div> 
+                      {% endif %}
+                </div>
+                <div class="well-div clearfix">
+                  <span class="well-div-span">訂購地址:</span>
+                  <div class="well-div-div">
+                    <select name="shipping_city_id" id="shipping_city_id" class="select well-input shipping-input">
+                      <option value="">{{ text_select }}</option>
+                        {% for shipping_city in shipping_cities %}
+                          {% if shipping_city.city_id == shipping_city_id %}
+                            <option value="{{ shipping_city.city_id }}" selected="selected">{{ shipping_city.name }}</option>
+                          {% else %}
+                            <option value="{{ shipping_city.city_id }}">{{ shipping_city.name }}</option>
+                          {% endif %}
+                        {% endfor %}
+                    </select>
+                    {% if warning.shipping_city_id %}
+                      <div class="text-danger">{{ warning.shipping_city_id }}</div> 
+                    {% endif %}
+                  </div>
+                    <!-- zone -->
+                  <div class="well-div-div">
+                    <select name="shipping_zone_id" id="shipping_zone_id" class="select well-input shipping-input">
+                      <option value="">{{ text_select }}</option>
+                        {% for shipping_zone in shipping_zones %}
+                          {% if shipping_zone.zone_id == shipping_zone_id %}
+                            <option value="{{ shipping_zone.zone_id }}" selected="selected">{{ shipping_zone.name }}</option>
+                          {% else %}
+                            <option value="{{ shipping_zone.zone_id }}">{{ shipping_zone.name }}</option>
+                          {% endif %}
+                        {% endfor %}
+                    </select>
+                    {% if warning.shipping_zone_id %}
+                    <div class="text-danger">{{ warning.shipping_zone_id }}</div> 
+                    {% endif %}
+                  </div>
+                  <span class="well-div-span m-624-none">&nbsp;</span>
+                  <input type="hidden" name="shipping_postcode" value="{{ shipping_postcode }}" />
+                  <input type="text" name="shipping_address" id="shipping_address" class="well-input shipping-input" value="{{ shipping_address }}">
+                    {% if warning.shipping_address %}
+                    <div class="text-danger">{{ warning.shipping_address }}</div> 
+                    {% endif %}
+                </div>          
+              </div>        
+            </div>
+            <!-- 引入購物車 -->
+             <div class="row"></div>
+            <div class="pick-table clearfix">
+            {{ shopping_cart }} 
+            {{ shopping_total }} 
+            </div>
+          
+            <div class="row"></div>
+            <p><strong>{{ text_comments }}</strong></p>
+            <textarea name="comment" rows="8" class="form-control2" style="border: solid 1px #ccc;">{{ comment }}</textarea>
+
+<!--           <div class="checkout-div">
+            <h1>禮金／折價券</h1>
+            <p>已使用２００元禮金</p>                
+          </div> -->
+          <div class="shoppong-btn text-right">
+            <a href="{{ cart }}"><i class="fa fa-hand-o-left" aria-hidden="true"></i>回付款方式</a>
+            <button type="submit">{{ next }}<i class="fa fa-hand-o-right" aria-hidden="true"></i></button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+      <script type="text/javascript"> 
+    $(function(){ 
+      $(".scroll-top").click(function(){    
+        $('html, body').animate({scrollTop: $(".cart").offset().top -130}, 900);
+        return false;
+      });
+       $(".scroll-bottom").click(function(){
+        $("html,body").animate({scrollTop:0},900);
+        return false;
+      });   
+    });
+  </script>
+  <div class="new-slide-bottom clearfix">
+    <p><img src="images/about-slide-after.png" alt="" class="fadeInUp wow" data-wow-delay=".1s"></p>
+    <p><img src="images/contact-img-one.png" alt="" class="fadeInUp wow" data-wow-delay=".3s"></p>
+    <p>
+      <img src="images/i-slide-bottom.png" alt="" class="slide-pc scroll-bottom fadeInUp wow" data-wow-delay=".5s">
+      <img src="images/i-slide-bottom.svg" alt="" class="slide-mobile scroll-bottom">
+    </p>
+  </div>
+</div><!-- cart-warp -->
+
+
+
+<script type="text/javascript">
+{% if the_same %}
+$('.shipping-input').prop('disabled',true);
+{% endif %}
+
+$('#the_same').on('change',function(){
+  var $val = $('input[type=\'checkbox\'][name=\'the_same\']:checked').val();
+  if($val == 1) {
+    $('.shipping-input').prop('disabled',true);
+    $('#shipping_mobile').val($('#payment_mobile').val());
+    $('#shipping_name').val($('#payment_name').val());
+    $('#shipping_email').val($('#payment_email').val());
+    $('#shipping_address').val($('#payment_address').val());
+    $('#shipping_city_id').val($('#payment_city_id').val());
+    $('#shipping_zone_id').html('<option value="' + $('#payment_zone_id').val() + '" selected="selected">' + $('#payment_zone_id option:selected').text() + '</option>');
+  } else {
+    $('.shipping-input').prop('disabled',false);
+    $('#shipping_mobile').val('');
+    $('#shipping_name').val('');
+    $('#shipping_email').val('');
+    $('#shipping_address').val('');
+    $('#shipping_city_id').val('');
+    $('#shipping_zone_id').html('<option value="" selected="selected">{{ text_select }}</option>');
+  }
+});
+
+
+$('#submit').on('click',function() {
+	$('#checkout-form').submit();
+});
+var get_total = function() {
+	$.get('{{ get_total }}',function(html) {
+		$('#shopping_total').html(html);
+	});
+}
+$('input[name=\'shipping_method\']').on('change',function(){
+	get_total();
+});
+
+
+
+var select_method = function($btn) {
+	$('.error').remove();
+	var $form_data = $('#checkout-form').serialize();
+	$.ajax({
+        type: 'POST',
+        url: '{{ save_shipping }}',
+        data: $form_data,
+        dataType: 'json',
+        async: false,
+        success:function(json){
+        	if(json['warning']) {
+        		$.each(json['warning'],function(id,msg){
+        			var input_object = $('#'+id);
+        			input_object.after('<p class="error">'+msg+'</p>');
+        		});
+        	}
+
+        	if(json['success']) {
+        		$.get('{{ get_shipping }}',function(html) {
+        			$('#shipping_methods').html(html);
+        		});
+        	}
+
+        	$.ajax({
+        		type: 'POST',
+					  url: '{{ save_payment }}',
+					  data: $form_data,
+					  dataType: 'json',
+					  async: false,
+					  success:function(json){
+						  if(json['warning']) {
+						  	$.each(json['warning'],function(id,msg){
+						  		var input_object = $('#'+id);
+						  		input_object.after('<p class="error">'+msg+'</p>');
+						  	});
+						  }
+
+						  if(json['success']) {
+						  	$.get('{{ get_payment }}',function(html) {
+						  		$('#payment_methods').html(html);
+						  		$('#methods').fadeIn(function(){
+						  			$($btn).remove();
+										get_total();
+						  		});
+						  	});
+						  }
+						}
+					});
+        }
+    });
+}
+</script>
+<script type="text/javascript"><!--
+$('select[name=\'payment_city_id\']').on('change', function() {
+  $.ajax({
+    url: '{{ get_zone }}&city_id=' + this.value,
+    dataType: 'json',
+    beforeSend: function() {
+      $('select[name=\'payment_city_id\']').prop('disabled', true);
+    },
+    complete: function() {
+      $('select[name=\'payment_city_id\']').prop('disabled', false);
+    },
+    success: function(json) {
+      html = '<option value="">{{ text_select }}</option>';
+
+      if (json && json != '') {
+        for (i = 0; i < json.length; i++) {
+                html += '<option value="' + json[i]['zone_id'] + '"';
+
+          if (json[i]['zone_id'] == '{{ config_zone_id }}') {
+                  html += ' selected="selected"';
+          }
+
+          html += '>' + json[i]['name'] + '</option>';
+        }
+      } else {
+        html += '<option value="0" selected="selected">{{ text_none }}</option>';
+      }
+
+      $('select[name=\'payment_zone_id\']').html(html);
+    },
+    error: function(xhr, ajaxOptions, thrownError) {
+      alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+    }
+  });
+});
+
+$('select[name=\'payment_zone_id\']').on('change', function() {
+  $.ajax({
+    url: '{{ get_postcode }}&zone_id=' + this.value,
+    dataType: 'json',
+    beforeSend: function() {
+      $('select[name=\'payment_zone_id\']').prop('disabled', true);
+    },
+    complete: function() {
+      $('select[name=\'payment_zone_id\']').prop('disabled', false);
+    },
+    success: function(json) {
+      $('input[name=\'payment_postcode\']').val(json);
+    },
+    error: function(xhr, ajaxOptions, thrownError) {
+      alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+    }
+  });
+});
+
+//--></script>
+<script type="text/javascript"><!--
+$('select[name=\'shipping_city_id\']').on('change', function() {
+  $.ajax({
+    url: '{{ get_zone }}&city_id=' + this.value,
+    dataType: 'json',
+    beforeSend: function() {
+      $('select[name=\'shipping_city_id\']').prop('disabled', true);
+    },
+    complete: function() {
+      $('select[name=\'shipping_city_id\']').prop('disabled', false);
+    },
+    success: function(json) {
+      html = '<option value="">{{ text_select }}</option>';
+
+      if (json && json != '') {
+        for (i = 0; i < json.length; i++) {
+                html += '<option value="' + json[i]['zone_id'] + '"';
+
+          if (json[i]['zone_id'] == '{{ config_zone_id }}') {
+                  html += ' selected="selected"';
+          }
+
+          html += '>' + json[i]['name'] + '</option>';
+        }
+      } else {
+        html += '<option value="0" selected="selected">{{ text_none }}</option>';
+      }
+
+      $('select[name=\'shipping_zone_id\']').html(html);
+    },
+    error: function(xhr, ajaxOptions, thrownError) {
+      alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+    }
+  });
+});
+
+$('select[name=\'shipping_zone_id\']').on('change', function() {
+  $.ajax({
+    url: '{{ get_postcode }}&zone_id=' + this.value,
+    dataType: 'json',
+    beforeSend: function() {
+      $('select[name=\'shipping_zone_id\']').prop('disabled', true);
+    },
+    complete: function() {
+      $('select[name=\'shipping_zone_id\']').prop('disabled', false);
+    },
+    success: function(json) {
+      $('input[name=\'shipping_postcode\']').val(json);
+    },
+    error: function(xhr, ajaxOptions, thrownError) {
+      alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+    }
+  });
+});
+//--></script>
+{{ footer }}

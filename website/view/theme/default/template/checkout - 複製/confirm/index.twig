@@ -1,0 +1,129 @@
+{{ header }}
+<div class="products-img products-img-item"></div>
+<div class="cart-warp">
+  <div class="checkout-details">
+    <br/>    
+    <!--  -->
+    <div class="confirm clearfix">
+      <div class="confirm-icon">       
+        <img src="images/cart-check.png" alt="">
+      </div>
+      <div class="confirm-conter">
+        <p>您的訂單已在{{ order_data.date_added }}成功提交囉</p>
+        <p>您的訂單編號為 : <span class="red" >{{ order_data.order_number }}</span></p>
+        <p>訂單狀況 : {{ order_data.order_status}}</p>
+        <p>支付方式 : {{ order_data.payment_method }}</p>       
+       <!--  <p>購物禮金 : 已使用100元禮金</p> -->
+        <!-- <span class="confirm-conter-span"></span> -->
+        <!-- <span class="confirm-conter-span"></span> -->
+        <!-- <p>購物禮卷 : 已使用100元禮卷</p> -->
+     <!--    <p>出貨狀態 : 代收款</p> -->
+      </div>
+    </div>
+    <div class="confirm-title">
+      <p class="confirm-btn"><i class="fa fa-street-view" aria-hidden="true" style="padding-right: 8px"></i>訂購資料</p>
+    </div>
+    <div class="confirm-data">
+      <div class="row">
+        <div class="col-lg-6">            
+          <div class="well">
+            <h1>訂購者資料</h1>
+            <div class="confirm-div clearfix">
+              <div class="confirm-txt">姓<span class="le-padding"></span>名:</div>
+              <div class="confirm--data">{{ order_data.payment_name }}</div>
+            </div>
+
+            <div class="confirm-div clearfix">
+              <div class="confirm-txt">行動電話:</div>
+              <div class="confirm--data">{{ order_data.payment_mobile }}</div>
+            </div>
+
+            <div class="confirm-div clearfix">
+              <div class="confirm-txt">電子郵件:</div>
+              <div class="confirm--data">{{ order_data.email }}</div>
+            </div>
+
+            <div class="confirm-div clearfix">
+              <div class="confirm-txt">地<span class="le-padding"></span>址:</div>
+              <div class="confirm--data">{{ order_data.payment_country }} ({{ order_data.payment_postcode }}) {{ order_data.payment_city }} {{ order_data.payment_zone }} {{ order_data.payment_address }}</div>
+            </div>
+            <!--  
+            <div class="form-group">
+              <label class="col-sm-2 control-label">姓名</label>
+              <div class=""><p>{{ order_data.payment_name }}</p></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">行動電話</label>
+              <div class=""><p>{{ order_data.payment_mobile }}</p></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">電子郵件</label>
+                <div class=""><p>{{ order_data.email }}</p></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">地址</label>
+              <div class=""><p>{{ order_data.payment_country }} ({{ order_data.payment_postcode }}) {{ order_data.payment_city }} {{ order_data.payment_zone }} {{ order_data.payment_address }}</p>
+               <p></p></div>
+            </div>-->
+          </div>
+        </div>
+        <div class="col-lg-6">            
+          <div class="well">
+            <h1>收件者資料</h1>
+            <div class="confirm-div clearfix">
+              <div class="confirm-txt">姓<span class="le-padding"></span>名:</div>
+              <div class="confirm--data">{{ order_data.shipping_name }}</div>
+            </div>
+            <div class="confirm-div clearfix">
+              <div class="confirm-txt">行動電話:</div>
+              <div class="confirm--data">{{ order_data.shipping_mobile }}</div>
+            </div>
+            <div class="confirm-div clearfix">
+              <div class="confirm-txt">電子郵件:</div>
+              <div class="confirm--data">{{ order_data.email }}</div>
+            </div>
+            <div class="confirm-div clearfix">
+              <div class="confirm-txt">地<span class="le-padding"></span>址:</div>
+              <div class="confirm--data">{{ order_data.shipping_country }} ({{ order_data.shipping_postcode }}) {{ order_data.shipping_city }} {{ order_data.shipping_zone }} {{ order_data.shipping_address }}</div>
+            </div>
+            <!--  
+            <div class="form-group">
+              <label class="col-sm-2 control-label">姓名</label>
+              <div class=""><p>{{ order_data.shipping_name }}</p></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">行動電話</label>
+              <div class=""><p>{{ order_data.shipping_mobile }}</p></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">電子郵件</label>
+                <div class=""><p>{{ order_data.email }}</p></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">地址</label>
+              <div class=""><p>{{ order_data.shipping_country }} ({{ order_data.shipping_postcode }}) {{ order_data.shipping_city }} {{ order_data.shipping_zone }} {{ order_data.shipping_address }}</p>
+               <p></p></div>
+            </div>-->
+          </div>
+        </div>
+      </div>  
+    </div>    
+    <div class="confirm-title">
+      <p class="confirm-list-btn"><i class="fa fa-archive" aria-hidden="true" style="padding-right: 8px"></i>檢視訂購清單</p>
+    </div>
+    <div class="confirm-list"> {{ confirm_cart }} {{ confirm_total }} </div>
+    <div class="confirm-columns">
+      <a href="{{ home }}"><i class="fa fa-reply" aria-hidden="true" style="padding-right: 8px"></i>回商城逛逛</a>
+      <a href="{{ product_category }}"><i class="fa fa-home" aria-hidden="true" style="padding-right: 8px"></i>回首頁</a>
+    </div>
+    <!--  -->
+    <script>
+      $(document).ready(function(){          
+          $(".confirm-list-btn").click(function(){
+            $(".confirm-list").fadeToggle("slow");            
+          });
+      });
+    </script>
+  </div>
+</div>
+{{ footer }}

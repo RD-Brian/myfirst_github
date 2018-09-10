@@ -1,0 +1,63 @@
+
+            <div class="cart-details-title">
+                <p>購物車 / <span> shopping cart</span></p>
+            </div>
+            <div class="cart-content">
+                {% if cart %}
+                <div class="cart-txt clearfix">
+                    <div class="cart-txt-01"><i class="fa fa-shopping-cart" aria-hidden="true"></i> {{ text_items }}</div>
+                    <div class="cart-txt-02">&nbsp;</div>
+                    <div class="cart-txt-03">單價</div>
+                    <div class="cart-txt-04">數量</div> 
+                    <div class="cart-txt-05">小計</div>
+                    <div class="cart-txt-06"></div>               
+                </div>
+                {% for k,product in cart %}
+                <div class="cart-product clearfix">
+                    <span class="cart-txt-01-mobile"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Your Item</span>
+                    <div class="cart-product-01">                       
+                        <img src="{{ product.image }}" alt="">
+                    </div>                                      
+                    <div class="cart-product-02">
+                        <p>商品名稱 : {{ product.name }}</p>
+                        <p>商品編號 : {{ product.ID }}</p>                     
+                    </div>
+                    <span class="cart-txt-03-mobile">Item price</span>  
+                    <div class="cart-product-03">
+                        <p>{{ product.price }}</p>
+                        <!-- <p style="color:red">40%off</p> -->
+                    </div>  
+                    <span class="cart-txt-04-mobile">Quantity</span>    
+                    <div class="cart-product-04">
+                        <button class="btn bg-light-grey" id="less"  onclick="cart.diminish('{{ k }}');">-</button>
+                          <input type="text" name="product_quantity" class="quantity-input text-center product_quantity{{ k }}" value="{{ product.quantity }}">
+                        <button class="btn bg-light-grey" id="plus" onclick="cart.plus('{{ product.product_id }}',is_plus=true,'{{ k }}');">+</button>
+                        <button class="btn bg-light-grey" id="update" onclick="cart.update('{{ product.product_id }}','{{ k }}');"><i class="fa fa-refresh"></i></button>
+                    </div>  
+                    <span class="cart-txt-05-mobile">price</span>   
+                    <div class="cart-product-05">
+                        <p>{{ product.count }}</p>                                          
+                    </div>  
+                    <span class="cart-txt-06-mobile">delete</span>  
+                    <div class="cart-product-06">
+                        <p><i class="fa fa-trash-o" aria-hidden="true" style="padding-right: 5px"></i><a onclick="cart.remove({{ product.cart_id }})">刪除</a></p>                                            
+                    </div>                      
+                </div>
+                {% endfor %}
+                
+                
+                {% else %}
+                  <div class="cart-txt clearfix">
+                    <div class="cart-txt-01"><i class="fa fa-shopping-cart" aria-hidden="true"></i> {{ text_items }}</div>
+                    <div class="cart-txt-02">&nbsp;</div>
+                    <div class="cart-txt-03">Item price</div>
+                    <div class="cart-txt-04">Quantity</div> 
+                    <div class="cart-txt-05">price</div>
+                    <div class="cart-txt-06">delete</div>               
+                </div>
+                  <div class="cart-product clearfix">
+                    <p class="text-center">購物車內無商品</p>
+                    <a href="{{ product_category }}"><p class="text-center"><i class="fa fa-reply" aria-hidden="true"></i>回商城逛逛</p></a>
+                  </div>
+                {% endif %}
+            </div>          

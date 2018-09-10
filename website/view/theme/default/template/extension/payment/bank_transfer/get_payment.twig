@@ -1,0 +1,22 @@
+{% for payment in payment_method %}
+          <div class="col-md-12 pick-up clearfix">
+            <div class="col-sm-2 col-xs-12 text-overflow mobile-none">{{ payment.method }}</div>
+            <div class="col-sm-1 col-xs-12 bg-light-grey pick-up-div2 mobile-bg-none">
+              {% if payment.code == code %}
+                <span class="payment--radio">
+                  <input type="radio" name="payment_method" value="{{ payment.code }}" checked="checked"/>
+                </span>
+              {% else %}
+                <span class="payment--radio">
+                  <input type="radio" name="payment_method" value="{{ payment.code }}"/>
+                </span>
+              {% endif %}
+
+              <span class="pick-up-m-p">{{ payment.method }}</span>          
+            </div>
+            <div class="col-sm-9 col-xs-12 pick-up-icon text-overflow">
+              {{ payment.title }} / {{ payment.terms }} 
+              <img src="images/icon3.jpg" alt="">
+            </div>
+          </div>
+{% endfor %}

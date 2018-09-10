@@ -1,0 +1,53 @@
+<!doctype html>
+<html dir="{{ direction }}" lang="{{ lang }}">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>{{ title }}</title>
+<base href="{{ base }}" />
+<!-- META -->
+{% if description %}
+<meta name="description" content="{{ description }}" />
+{% endif %}
+{% if keywords %}
+<meta name="keywords" content="{{ keywords }}" />
+{% endif %}
+{% if author %}
+<meta name="author" content="{{ author }}" />
+{% endif %}
+{% if ogs %}
+{% for og in ogs %}
+<meta property="og:{{ og.property }}" content="{{ og.content }}" />
+{% endfor %}
+{% endif %}
+<!-- END META -->
+<!-- PROJECT CSS -->
+<link rel="stylesheet" type="text/css" href="view/theme/{{ theme }}/stylesheet/jquery-effect.css">
+<link rel="stylesheet" type="text/css" href="view/theme/{{ theme }}/stylesheet/cart.css">
+<link rel="stylesheet" type="text/css" href="view/theme/{{ theme }}/stylesheet/main.css">
+<link rel="stylesheet" type="text/css" href="view/theme/{{ theme }}/stylesheet/responsive.css">
+<!-- END PROJECT CSS -->
+<!-- ADD PROJECT -->
+{% for style in styles %}
+<link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
+{% endfor %}
+<!-- END CSS -->
+<!-- PROJECT JS -->
+<script src="view/theme/{{ theme }}/javascript/jquery.min.js"></script>
+<script src="view/theme/{{ theme }}/javascript/bootstrap.js"></script>
+<script src="view/theme/{{ theme }}/javascript/jquery.min.js"></script>
+<script src="view/theme/{{ theme }}/javascript/swiper.min.js"></script>
+<script src="view/javascript/core/cart.js"></script>
+<!-- END PROJECT JS -->
+{% for script in scripts %}
+<script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+<!-- END SCRIPT -->
+{% for link in links %}
+<link href="{{ link.href }}" rel="{{ link.rel }}" />
+{% endfor %}
+{% for analytic in analytics %}
+{{ analytic }}
+{% endfor %}
+</head>

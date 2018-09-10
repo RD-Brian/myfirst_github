@@ -1,0 +1,8 @@
+{% for total in totals %}
+<p>
+<span class="cart-checkout-span-01">{{ total.title }}：</span>
+<span class="cart-checkout-span-02">{{ total.text }}</span>
+</p>
+{% endfor %}
+<p>{{ free }}</p>
+<p>{{ difference }}</p>
